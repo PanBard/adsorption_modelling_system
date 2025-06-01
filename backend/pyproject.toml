@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "project-1"
+version = "0.1.0"
+description = ""
+authors = ["PanBard <antek.bezi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flask = "^3.1.0"
+joblib = "^1.4.2"
+scikit-learn = "^1.6.1"
+flask-cors = "^5.0.1"
+tensorflow = "^2.19.0"
+matplotlib = "^3.10.1"
+xgboost = "^3.0.2"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,30 @@
+services:
+
+  frontend:
+    restart: on-failure
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    networks:
+      - custom_network
+    ports:
+      - "5173:5173"
+      
+  backend:
+    restart: on-failure
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    networks:
+      - custom_network
+    ports:
+      - "5000:5000"
+      
+      
+      
+
+networks:
+  custom_network:
+    driver: bridge
