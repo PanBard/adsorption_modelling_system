@@ -5,10 +5,8 @@ import '../css/ImageModal.css'
 
 
 function ReverseEngineering() {
-
-  const [X_data_list_mock, setX_data_list_mock] = useState(['0.005130397605814449', '0.010688328345446765', '0.02094912355707569', '0.0401881145788798', '0.06070970500213768', '0.0808037622915776', '0.10089781958101757', '0.15134672937152624', '0.20094057289439932', '0.25010688328345443', '0.3005557930739632', '0.4010260795211628', '0.5027789653698161', '0.6006840530141084', '0.7002992731936724', '0.8003420265070542', '0.9016673792218896', '0.9508336896109447']);
-  const [Y_data_list_mock, setY_data_list_mock] = useState(['317.4257975708502', '330.4930688259108', '342.4714008097166', '353.36079352226716', '359.34995951417', '362.0723076923076', '364.7946558704453', '369.1504129554656', '371.32829149797567', '373.5061700404857', '375.1395789473684', '377.3174574898785', '378.4063967611335', '380.0398056680162', '381.12874493927126', '382.2176842105262', '384.3955627530364', '387.1179109311741']);
-
+  const X_data_list_mock = ['0.005130397605814449', '0.010688328345446765', '0.02094912355707569', '0.0401881145788798', '0.06070970500213768', '0.0808037622915776', '0.10089781958101757', '0.15134672937152624', '0.20094057289439932', '0.25010688328345443', '0.3005557930739632', '0.4010260795211628', '0.5027789653698161', '0.6006840530141084', '0.7002992731936724', '0.8003420265070542', '0.9016673792218896', '0.9508336896109447']
+  const Y_data_list_mock = ['317.4257975708502', '330.4930688259108', '342.4714008097166', '353.36079352226716', '359.34995951417', '362.0723076923076', '364.7946558704453', '369.1504129554656', '371.32829149797567', '373.5061700404857', '375.1395789473684', '377.3174574898785', '378.4063967611335', '380.0398056680162', '381.12874493927126', '382.2176842105262', '384.3955627530364', '387.1179109311741']
 
   const [imageSrc_isotherm, setimageSrc_isotherm] = useState('');
   const [imageSrcPie_raw_material_composition, setimageSrcPie_raw_material_composition] = useState('');
@@ -20,8 +18,8 @@ function ReverseEngineering() {
   const [Carbonization_temperature, setCarbonization_temperature] = useState('');
   const [Carbonization_time, setCarbonization_time] = useState('');
   const [Impregnation_ratio, setImpregnation_ratio] = useState('');
-  const [Nitrogen_doped_ratio, setNitrogen_doped_ratio] = useState('');
-  const [Nitrogen_content, setNitrogen_content] = useState('');
+  // const [Nitrogen_doped_ratio, setNitrogen_doped_ratio] = useState('');
+  // const [Nitrogen_content, setNitrogen_content] = useState('');
   const [Heating_rate, setHeating_rate] = useState('');
 
   const [Elemental_composition_Carbon, setElemental_composition_Carbon] = useState('');
@@ -156,8 +154,8 @@ const [isOpen, setIsOpen] = useState<any>(false);
 
 
       //other
-      setNitrogen_doped_ratio(result.isotherm_22_features[8][1])
-      setNitrogen_content(result.isotherm_22_features[9][1])
+      // setNitrogen_doped_ratio(result.isotherm_22_features[8][1])
+      // setNitrogen_content(result.isotherm_22_features[9][1])
 
 
       //feedstock elemental composition 
@@ -188,6 +186,7 @@ const [isOpen, setIsOpen] = useState<any>(false);
     } catch (error: any) {
       console.error(error.message) // Handle errors
     } finally {
+      console.error(true)
     }
   };
 

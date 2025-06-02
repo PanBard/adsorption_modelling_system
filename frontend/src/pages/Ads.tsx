@@ -4,12 +4,8 @@ import { env } from "../env/env";
 import '../css/ImageModal.css'
 
 function Ads() {
-  const [data, setData] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [response_get, setResponse_get] = useState('');
-  const [response_post, setResponse_post] = useState('');
-  const [text, settext] = useState('');
+
+
   const [imageSrc_isotherm, setimageSrc_isotherm] = useState('');
   const [imageSrcPie_raw_material_composition, setimageSrcPie_raw_material_composition] = useState('');
   const [imageSrcPie_industrial, setimageSrcPie_industrial] = useState('');
@@ -20,8 +16,8 @@ function Ads() {
   const [Carbonization_temperature, setCarbonization_temperature] = useState('');
   const [Carbonization_time, setCarbonization_time] = useState('');
   const [Impregnation_ratio, setImpregnation_ratio] = useState('');
-  const [Nitrogen_doped_ratio, setNitrogen_doped_ratio] = useState('');
-  const [Nitrogen_content, setNitrogen_content] = useState('');
+  // const [Nitrogen_doped_ratio, setNitrogen_doped_ratio] = useState('');
+  // const [Nitrogen_content, setNitrogen_content] = useState('');
   const [Heating_rate, setHeating_rate] = useState('');
 
   const [Elemental_composition_Carbon, setElemental_composition_Carbon] = useState('');
@@ -44,8 +40,7 @@ function Ads() {
   const [isotherm_type, setisotherm_type] = useState('');
   const [material_type,setmaterial_type] = useState('');
 
-  const [input_url_get, setInput_url_get] = useState('');
-  const [input_url_post, setInput_url_post] = useState('');
+
 
   // --------------------
   
@@ -68,25 +63,11 @@ function Ads() {
 
 
 
-  //---------------------
-
-  // Handle input change
-  const handleChange_get = (e: any) => {
-    setInput_url_get(e.target.value);
-  };
-
-  const handleChange_post = (e: any) => {
-    setInput_url_post(e.target.value);
-  };
-
-  const handleChange_text = (e: any) => {
-    settext(e.target.value);
-  };
 
 
     // POST request function
   const fetchData_with_image_post = async () => {
-    setLoading(true); // Set loading to true while waiting for response
+
     try {
       if(betValue == '' || total_pore_value == '' || micropore_value == '')
       {
@@ -122,8 +103,8 @@ function Ads() {
       setCarbonization_temperature(result.isotherm_19_features[2][1])
       setCarbonization_time(result.isotherm_19_features[3][1])
       setImpregnation_ratio(result.isotherm_19_features[4][1])
-      setNitrogen_doped_ratio(result.isotherm_19_features[5][1])
-      setNitrogen_content(result.isotherm_19_features[6][1])
+      // setNitrogen_doped_ratio(result.isotherm_19_features[5][1])
+      // setNitrogen_content(result.isotherm_19_features[6][1])
       setHeating_rate(result.isotherm_19_features[7][1])
 
       setElemental_composition_Carbon(result.isotherm_19_features[8][1])
@@ -156,9 +137,9 @@ function Ads() {
       setimageSrcPie_biochemical(`data:image/png;base64,${result.pie_graph_biochemical_composition}`)
 
     } catch (error: any) {
-      setError(error.message); // Handle errors
+      console.log(error.message); // Handle errors
     } finally {
-      setLoading(false); // Set loading to false after the request
+      console.log(false); // Set loading to false after the request
     }
   };
 

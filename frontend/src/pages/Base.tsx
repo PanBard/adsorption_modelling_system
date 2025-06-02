@@ -1,5 +1,6 @@
+import { Header } from '../components'
 import './Base.css'
-import Header from "../components/Header"
+
 
 const Base = (props: { children: any }) => {
 

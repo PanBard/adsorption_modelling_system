@@ -2,13 +2,9 @@ import { useState } from "react";
 import Base from "./Base"
 
 function PostMan() {
-  const [data, setData] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [response_get, setResponse_get] = useState('');
   const [response_post, setResponse_post] = useState('');
   const [text, settext] = useState('');
-  const [imageSrc, setImageSrc] = useState('');
 
   const [input_url_get, setInput_url_get] = useState('');
   const [input_url_post, setInput_url_post] = useState('');
@@ -35,11 +31,10 @@ function PostMan() {
       const result = await response.json(); // Parse JSON response
       console.log(result)
       setResponse_get(result)
-      setData(result.prediction); // Set the response data in state
     } catch (error:any) {
-      setError(error.message); // Handle errors
+      console.log(error.message); // Handle errors
     } finally {
-      setLoading(false); // Set loading state to false after fetching data
+      console.log(false); // Set loading state to false after fetching data
     }
   }
 
@@ -77,7 +72,6 @@ function PostMan() {
 
   // POST request function
   const fetchData_post = async () => {
-    setLoading(true); // Set loading to true while waiting for response
     try {
         const requestData = JSON.parse(text);
       const response = await fetch(input_url_post, {
@@ -97,9 +91,9 @@ function PostMan() {
 
       setResponse_post(result); // Set the response to state
     } catch (error: any) {
-      setError(error.message); // Handle errors
+      console.log(error.message); // Handle errors
     } finally {
-      setLoading(false); // Set loading to false after the request
+      console.log(false); // Set loading to false after the request
     }
   };
 
@@ -152,11 +146,7 @@ return (
 
         {post_form()}
 
-        {imageSrc ? (
-        <img src={imageSrc} alt="Model Performance Plot" />
-      ) : (
-        <p></p>
-      )}
+
 
         {/* <h1>Adsorbent tool - Home</h1>
         {data}
